@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Rolling Stone Top 500 albums of all time</title>
+  <meta name="description" content="Rolling Stone magazine's 2012 list of 500 greatest albums of all time with genres.">
+
+	<link rel="stylesheet" href="{% static 'users/assets/js/datatables/datatables.css' %}">
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{% static 'css/jquery.dataTables.yadcf.css' %}">
+      <script src="{% static 'users/assets/js/select2/select2.css' %}"></script>
+
+</head>
+
+<body>
+  <div class="container" style="font-size: .9em;">
+    {% block content %}{% endblock %}
+  </div>
+	<script src="{% static 'users/assets/js/datatables/datatables.js' %}"></script>
+
+	<!-- Bottom scripts (common) -->
+	<script src="{% static 'users/assets/js/gsap/TweenMax.min.js' %}"></script>
+	<script src="{% static 'users/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js' %}"></script>
+	<script src="{% static 'users/assets/js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/jquery.dataTables.yadcf.js' %}"></script>
+    <script src="{% static 'users/assets/js/select2/select2.min.js' %}"></script>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

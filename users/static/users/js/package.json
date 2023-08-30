@@ -1,0 +1,21 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Beaus project test",
+  "main": "nums.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify nums.js bundle.js"
+  },
+  "author": "Beau Enslow",
+  "license": "ISC",
+  "dependencies": {
+    "express": "file:express",
+    "express-v4-route-list": "^1.1.5",
+    "mongo-datatable": "file:mongo-datatable",
+    "mongodb": "file:mongodb"
+  }
+}

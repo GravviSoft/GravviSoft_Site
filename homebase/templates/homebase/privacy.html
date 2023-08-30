@@ -1,0 +1,833 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="GravviSoft - Lead Generation Platform">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Webpage Title -->
+    <title>GravviSoft - Lead Generation Platform</title>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="{% static 'homebase/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'homebase/css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static 'homebase/css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static 'homebase/css/magnific-popup.css' %}" rel="stylesheet">
+	<link href="{% static 'homebase/css/styles.css' %}" rel="stylesheet">
+
+	<!-- Favicon  -->
+
+
+<style>
+
+
+    html {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.background {
+  padding: 0 25px 25px;
+  position: relative;
+  width: 100%;
+}
+
+.background::after {
+  content: '';
+  background: #60a9ff;
+  background: -moz-linear-gradient(top, #60a9ff 0%, #4394f4 100%);
+  background: -webkit-linear-gradient(top, #60a9ff 0%,#4394f4 100%);
+  background: linear-gradient(to bottom, #60a9ff 0%,#4394f4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
+  height: 350px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .background {
+    padding: 0 0 25px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 50px 0 0;
+  max-width: 960px;
+  width: 100%;
+}
+
+.panel {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 25px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.pricing-table {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .pricing-table {
+    flex-direction: row;
+  }
+}
+
+.pricing-table * {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pricing-plan {
+  border-bottom: 1px solid #e1f1ff;
+  padding: 25px;
+}
+
+.pricing-plan:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 900px) {
+  .pricing-plan {
+    border-bottom: none;
+    border-right: 1px solid #e1f1ff;
+    flex-basis: 100%;
+    padding: 25px 50px;
+  }
+
+  .pricing-plan:last-child {
+    border-right: none;
+  }
+}
+
+.pricing-img {
+  margin-bottom: 25px;
+  max-width: 100%;
+}
+
+.pricing-header {
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.pricing-features {
+  color: #016FF9;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 50px 0 25px;
+}
+
+.pricing-features-item {
+  border-top: 1px solid #e1f1ff;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 15px 0;
+}
+
+.pricing-features-item:last-child {
+  border-bottom: 1px solid #e1f1ff;
+}
+
+.pricing-price {
+  color: #016FF9;
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+.pricing-button {
+  border: 1px solid #9dd1ff;
+  border-radius: 10px;
+  color: #348EFE;
+  display: inline-block;
+  margin: 25px 0;
+  padding: 15px 35px;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+}
+
+.pricing-button:hover,
+.pricing-button:focus {
+  background-color: #e1f1ff;
+}
+
+.pricing-button.is-featured {
+  background-color: #48aaff;
+  color: #fff;
+}
+
+.pricing-button.is-featured:hover,
+.pricing-button.is-featured:active {
+  background-color: #269aff;
+}
+.small-middle-container{
+	margin: auto;
+	width: 85%;
+}
+.small-middle-container2{
+	margin: auto;
+	width: 85%;
+}
+
+</style>
+
+
+
+
+</head>
+
+
+
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">AVID</a> -->
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image-lg" href="{% url 'home' %}"><img src="{% static 'homebase/images/Original.svg' %}" height="50" width="260"></a>
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
+                    </li>
+
+
+                </ul>
+                <span class="nav-item">
+                    <a class="btn-outline-sm" href="{% url 'login' %}">Log In</a>
+                </span>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br><br>
+                    <h1>B2B Lead Generation Platform</h1><br>
+                    <p class="p-lg">GravviSoft uses state of the art web scraping technology to collect B2B leads from all over the web.  Become a user and automate your B2B sales process today!
+                    <!-- Sign Up Form -->
+                   <br><br>
+<!--                <small class="p-lg">GravviSoft uses state of the art web scraping technology to collect B2B leads from all over the web. and qualify those leads with our built-in real-time verification.   GravviSoft provides valid lead lists on a weekly basis to our users, but the real power of Gravvisoft is our automated campaigns.   Instead of just providing leads, GravviSoft's automated Voicemail Drop Campaigns and Email integration can contact leads for you every week.  At Gravvisoft, our passion is helping others increase their results by tapping into the power of automation!!</small>-->
+
+
+
+                    <!-- end of sign up form -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+
+
+
+
+
+
+
+
+<!--                        <div class="video-wrapper">-->
+<!--                            <a class="popup-youtube" href="https://youtu.be/9f5mRBzybRg" data-effect="fadeIn">-->
+<!--                                <img class="img-fluid" src="{% static 'homebase/images/YouTube Cover Photo.png' %}" alt="alternative">-->
+<!--                                <span class="video-play-button">-->
+<!--                                    <span></span>-->
+<!--                                </span>-->
+<!--                            </a>-->
+<!--                        </div> &lt;!&ndash; end of video-wrapper &ndash;&gt;-->
+
+        <div class="vid-1">
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+                <video controls>
+
+                        <source src="{% static 'homebase/images/GravviSoft-1080.mp4' %}" type="video/mp4">
+
+    <!--                  <a class="popup-youtube" href="https://youtu.be/9f5mRBzybRg" data-effect="fadeIn">-->
+    <!--                                <img class="img-fluid" src="/static/homebase/images/YouTube%20Cover%20Photo.png" alt="alternative">-->
+
+                                    <span class="video-play-button">
+                                        <span></span>
+                                    </span>
+                </video>
+        </div>
+
+        </div>
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+
+
+
+    <!-- Benefits -->
+    <div class="cards">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-icon bg-1">
+                            <i class="fas fa-magnet"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Lead Scraping</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+
+
+                    <div class="card">
+                        <div class="card-icon bg-4">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">High Accuracy</h5>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-icon bg-2">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Automation</h5>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon bg-5">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Campaigns</h5>
+                        </div>
+                    </div>
+
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-icon bg-3">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Very Easy To Use</h5>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                </div>
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+
+    <!-- end of benefits -->
+
+  <div class="small-middle-container">
+
+
+    <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>Pricing Options</h1><br><br>
+
+                    <h2 class="mb-3">To Fit All Budget Sizes</h2>
+                    <p class="mb-5">GravviSoft is a lead generation tool packed with features designed to help you increase your sales exponentially.  Stop doing all the heavy lifting when it comes to lead generation. Let our platform give you the momentum you need to take your business to the next level!</p>
+                <!--                <small class="p-lg">GravviSoft uses state of the art web scraping technology to collect B2B leads from all over the web. and qualify those leads with our built-in real-time verification.   GravviSoft provides valid lead lists on a weekly basis to our users, but the real power of Gravvisoft is our automated campaigns.   Instead of just providing leads, GravviSoft's automated Voicemail Drop Campaigns and Email integration can contact leads for you every week.  At Gravvisoft, our passion is helping others increase their results by tapping into the power of automation!!</small>-->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+
+
+
+
+
+
+<!--<div class="background">-->
+<!--  <div class="container">-->
+    <div class="panel pricing-table">
+
+      <div class="pricing-plan">
+          <img src="{% static 'homebase/images/paper-plane.png' %}" alt="" class="pricing-img">
+
+        <h2 class="pricing-header">Basic</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">200 Leads/wk</li>
+          <li class="pricing-features-item">1 Lead Scraping Server</li>
+          <li class="pricing-features-item">1 Voicemail Drop Campaign</li>
+         <li class="pricing-features-item">1 Email Integration {w/Klenty}</li>
+
+        </ul>
+          <span class="pricing-price">$99<span class=" pricing-features-item">/wk</span></span>
+        <a  href="https://subscriptions.gravvisoft.com/subscribe/deb12a0cc0ac5f777508e613cb63291e1f563cd205dd5841ad482bf477cf719e/00001" class="pricing-button">Sign up</a>
+      </div>
+
+      <div class="pricing-plan">
+          <img src="{% static 'homebase/images/plane2.png' %}" alt="" class="pricing-img">
+        <h2 class="pricing-header">Pro</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">400 Leads/wk</li>
+          <li class="pricing-features-item">2 Lead Scraping Servers</li>
+          <li class="pricing-features-item">2 Voicemail Drop Campaigns</li>
+         <li class="pricing-features-item">2 Email Integrations {w/Klenty}</li>
+        </ul>
+          <span class="pricing-price">$189<span class="pricing-features-item">/wk</span></span>
+        <a  href="https://subscriptions.gravvisoft.com/subscribe/deb12a0cc0ac5f777508e613cb63291e1f563cd205dd5841ad482bf477cf719e/189" class="pricing-button">Sign up</a>
+      </div>
+
+      <div class="pricing-plan">
+          <img src="{% static 'homebase/images/space-ship.png' %}" alt="" class="pricing-img">
+        <h2 class="pricing-header">Elite</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">600 Leads/wk</li>
+          <li class="pricing-features-item">3 Lead Scraping Servers</li>
+          <li class="pricing-features-item">3 Voicemail Drop Campaigns</li>
+         <li class="pricing-features-item">3 Email Integrations {w/Klenty}</li>
+        </ul>
+          <span class="pricing-price">$279<span class="pricing-features-item">/wk</span></span>
+        <a  href="https://subscriptions.gravvisoft.com/subscribe/deb12a0cc0ac5f777508e613cb63291e1f563cd205dd5841ad482bf477cf719e/279" class="pricing-button">Sign up</a>
+      </div>
+
+      <div class="pricing-plan">
+        <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="pricing-img">
+        <h2 class="pricing-header">Teams</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Dedicated Servers</li>
+          <li class="pricing-features-item">Teams of all sizes</li>
+        <li class="pricing-features-item">Contact us for information</li>
+
+        </ul>
+        <span class="pricing-price"></span>
+        <a  href="" class="pricing-button">Sign up</a>
+      </div>
+
+    </div>
+
+  </div>
+
+<!--</div>-->
+
+    <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+
+                    <p class="mb-5"> *  <b><u>The number of leads per week is an estimate based on averages.</u></b>  Search radius and population density affect the number of leads the scraper supplys.</p>
+                <!--                <small class="p-lg">GravviSoft uses state of the art web scraping technology to collect B2B leads from all over the web. and qualify those leads with our built-in real-time verification.   GravviSoft provides valid lead lists on a weekly basis to our users, but the real power of Gravvisoft is our automated campaigns.   Instead of just providing leads, GravviSoft's automated Voicemail Drop Campaigns and Email integration can contact leads for you every week.  At Gravvisoft, our passion is helping others increase their results by tapping into the power of automation!!</small>-->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+
+
+
+
+
+
+<!--    <div class="form">-->
+<!--		<div class="container">-->
+<!--            <div class="text-container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12">-->
+<!--                        <div class="form-container">-->
+<!--&lt;!&ndash;                            <center> <h1>Pricing Options</h1></center><br><br>&ndash;&gt;-->
+
+
+<!--    &lt;!&ndash; Cards &ndash;&gt;-->
+<!--    <div class="ex-cards-4">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    &lt;!&ndash; Card&ndash;&gt;-->
+<!--                    <div class="card">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="package">BASIC<br>SUBSCRIPTION</div>-->
+<!--                            <div class="price"><span class="currency">$</span><span class="value">99</span><label>/wk</label></div>-->
+<!--                            <div class="period p-sm"></div>-->
+<!--                            <ul class="list-unstyled li-space-lg">-->
+
+<!--                                <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body"><b>200 B2B Leads Per/wk</b></div>-->
+<!--                                </li>-->
+<!--                                <div class="text-successwhat-title">Voicemail Drop</div>-->
+<!--                                <div class="text-successwhat"><b>Campaigns - 1</b></div>-->
+
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">1 Lead Scraping Server</div>-->
+<!--                                </li>-->
+
+
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Lead Database CRM</div>-->
+<!--                                </li>-->
+<!--                                <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Voicemail Drop Automation<br>Tool(50-100/Wk)</div>-->
+<!--                                </li>-->
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Email Automation<br>Integration</div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <a class="btn-solid-reg page-scroll" href="https://subscriptions.gravvisoft.com/subscribe/deb12a0cc0ac5f777508e613cb63291e1f563cd205dd5841ad482bf477cf719e/00001">Get Started</a>-->
+<!--                    </div> &lt;!&ndash; end of card &ndash;&gt;-->
+
+
+
+<!--                    &lt;!&ndash; Card&ndash;&gt;-->
+<!--                    <div class="card">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="package">STANDARD<br>SUBSCRIPTION</div>-->
+<!--                            <div class="price"><span class="currency">$</span><span class="value">199</span><label>/wk</label></div>-->
+<!--                            <div class="period p-sm"></div>-->
+<!--                            <ul class="list-unstyled li-space-lg">-->
+
+<!--                                <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body"><b>200 B2B Leads Per/wk</b></div>-->
+<!--                                </li>-->
+
+
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Lead Scraping Tool</div>-->
+<!--                                </li>-->
+
+
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Lead Database CRM</div>-->
+<!--                                </li>-->
+<!--                                <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Voicemail Drop Automation<br>Tool(100-200/Wk)</div>-->
+<!--                                </li>-->
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Email Automation<br>Integration</div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <a class="btn-solid-reg page-scroll" href="https://subscriptions.gravvisoft.com/subscribe/deb12a0cc0ac5f777508e613cb63291e1f563cd205dd5841ad482bf477cf719e/6901-2">Get Started</a>-->
+<!--                    </div> &lt;!&ndash; end of card &ndash;&gt;-->
+
+
+<!--                    &lt;!&ndash; Card&ndash;&gt;-->
+<!--                    <div class="card">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="package">PREMIUM<br>SUBSCRIPTION</div>-->
+<!--                            <div class="price"><span class="currency">$</span><span class="value">299</span><label>/wk</label></div>-->
+<!--                            <div class="period p-sm"></div>-->
+<!--                            <ul class="list-unstyled li-space-lg">-->
+
+<!--                                <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body"><b>300 B2B Leads Per/wk</b></div>-->
+<!--                                </li>-->
+
+
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Lead Scraping Tool</div>-->
+<!--                                </li>-->
+
+
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Lead Database CRM</div>-->
+<!--                                </li>-->
+<!--                                <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Voicemail Drop Automation<br>Tool(150-300/Wk)</div>-->
+<!--                                </li>-->
+<!--                              <li class="media">-->
+<!--                                    <i class="fas fa-check"></i>-->
+<!--                                    <div class="media-body">Email Automation<br>Integration</div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <a class="btn-solid-reg page-scroll" href="https://subscriptions.gravvisoft.com/subscribe/deb12a0cc0ac5f777508e613cb63291e1f563cd205dd5841ad482bf477cf719e/6901-3">Get Started</a>-->
+<!--                    </div> &lt;!&ndash; end of card &ndash;&gt;-->
+<!--                    &lt;!&ndash; end of card &ndash;&gt;-->
+
+<!--                </div> &lt;!&ndash; end of col &ndash;&gt;-->
+<!--            </div> &lt;!&ndash; end of row &ndash;&gt;-->
+<!--        </div> &lt;!&ndash; end of container &ndash;&gt;-->
+<!--    </div> &lt;!&ndash; end of ex-cards-3 &ndash;&gt;-->
+    <!-- end of cards -->
+
+
+
+
+<!--    &lt;!&ndash; Testimonials &ndash;&gt;-->
+
+
+<!--                        </div> &lt;!&ndash; enf of form-container &ndash;&gt;-->
+<!--                    </div> &lt;!&ndash; end of col &ndash;&gt;-->
+<!--                </div> &lt;!&ndash; end of row &ndash;&gt;-->
+<!--            </div> &lt;!&ndash; end of text-container &ndash;&gt;-->
+<!--        </div> &lt;!&ndash; end of container &ndash;&gt;-->
+<!--    </div>-->
+  <div class="small-middle-container2">
+    <div class="slider" data-slider-enabled="False">
+
+        <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">TESTIMONIALS</div>
+                    <h2>Trusted By Our Users</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+
+    <div class="embed-responsive embed-responsive-4by3">
+
+            <video controls>
+
+                    <source src="{% static 'homebase/images/liz_for_BEAU_012021.mp4' %}" type="video/mp4">
+
+            </video>
+    </div>
+        <p class="testimonial-author">Liz - Texas<br>
+Franchise Owner</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+
+    <div class="embed-responsive embed-responsive-4by3">
+
+            <video controls>
+
+                    <source src="{% static 'homebase/images/melissa_test.mp4' %}" type="video/mp4">
+
+            </video>
+    </div>
+        <p class="testimonial-author">Melissa  - Ohio<br>
+Franchise Owner</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+
+
+
+
+
+
+
+
+<!--    &lt;!&ndash; end of testimonials &ndash;&gt;-->
+
+
+<!--    &lt;!&ndash; Features &ndash;&gt;-->
+<!--    <div class="basic-2">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    <div class="section-title">FEATURES</div>-->
+<!--                    <h2>Schedule More Appts. Close More Deals.</h2>-->
+<!--                </div> &lt;!&ndash; end of col &ndash;&gt;-->
+<!--            </div> &lt;!&ndash; end of row &ndash;&gt;-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-6">-->
+<!--                    <ul class="list-unstyled first">-->
+<!--                        <li class="media">-->
+<!--                            <div class="list-icon bg-1">-->
+<!--                                <i class="fas fa-magnet"></i>-->
+<!--                            </div>-->
+<!--                            <div class="media-body">-->
+<!--                                <h3 class="list-item-title">Lead Scraping</h3>-->
+<!--                                <p class="list-item-text">GravviSoft technology searches for leads all over the web in real time!</p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li class="media">-->
+<!--                            <div class="list-icon bg-2">-->
+<!--                                <i class="fas fa-cogs"></i>-->
+<!--                            </div>-->
+<!--                            <div class="media-body">-->
+<!--                                <h3 class="list-item-title">Simple Setup</h3>-->
+<!--                                <p class="list-item-text">The templates and voicemail drop recordings are easy to setup and manage.</p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li class="media">-->
+<!--                            <div class="list-icon bg-3">-->
+<!--                                <i class="fas fa-thumbs-up"></i>-->
+<!--                            </div>-->
+<!--                            <div class="media-body">-->
+<!--                                <h3 class="list-item-title">Very Easy To use</h3>-->
+<!--                                <p class="list-item-text">The admin interface has a smooth learning curve and can easily be operated by anyone with basic skills</p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul> &lt;!&ndash; end of list-unstyled &ndash;&gt;-->
+<!--                </div> &lt;!&ndash; end of col &ndash;&gt;-->
+<!--                <div class="col-lg-6">-->
+<!--                    <ul class="list-unstyled second">-->
+<!--                        <li class="media">-->
+<!--                            <div class="list-icon bg-4">-->
+<!--                                <i class="fas fa-dot-circle"></i>-->
+<!--                            </div>-->
+<!--                            <div class="media-body">-->
+<!--                                <h3 class="list-item-title">High Accuracy</h3>-->
+<!--                                <p class="list-item-text">Our development team has done it's best to create a powerful tool that provides reliable and accurate data</p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li class="media">-->
+<!--                            <div class="list-icon bg-5">-->
+<!--                                <i class="fas fa-chart-pie"></i>-->
+<!--                            </div>-->
+<!--                            <div class="media-body">-->
+<!--                                <h3 class="list-item-title">Reporting Tools</h3>-->
+<!--                                <p class="list-item-text">The included reporting features are completely customizable and enable a general overview of data</p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li class="media">-->
+<!--                            <div class="list-icon bg-1">-->
+<!--                                <i class="fas fa-binoculars"></i>-->
+<!--                            </div>-->
+<!--                            <div class="media-body">-->
+<!--                                <h3 class="list-item-title">Source Monitoring</h3>-->
+<!--                                <p class="list-item-text">See where leads are coming from and which industries are responding best to your campaigns</p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul> &lt;!&ndash; end of list-unstyled &ndash;&gt;-->
+<!--                </div> &lt;!&ndash; end of col &ndash;&gt;-->
+<!--            </div> &lt;!&ndash; end of row &ndash;&gt;-->
+<!--        </div> &lt;!&ndash; end of container &ndash;&gt;-->
+<!--    </div> &lt;!&ndash; end of basic-2 &ndash;&gt;-->
+<!--    &lt;!&ndash; end of features &ndash;&gt;-->
+
+    <!-- Invitation -->
+	<div class="form">
+        <div class="text-container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-container">
+
+                            <h3>Stop doing all the heavy lifting when it comes to lead generation.  Let our platform give you the momentum you need to take your business to the next level!
+
+
+                    <!-- Sign Up Form -->
+                   <br>
+                        <br><a class="btn-solid-lg page-scroll btn-block" href="{% url 'pricing' %}">Get Started</a></h3>
+                            <!-- end of sign up form 2 -->
+
+                        </div> <!-- enf of form-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of text-container -->
+        </div> <!-- end of container -->
+    <!-- end of invitation -->
+  </div>
+
+
+
+<div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-col first">
+                        <h6>About GravviSoft</h6>
+                        <p class="p-sm">GravviSoft is a lead generation tool packed with features designed to help you increase your sales exponentially.</p>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col second">
+                        <h6>Links</h6>
+                        <ul class="list-unstyled li-space-lg p-sm">
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="/">Homepage</a></li>
+                        </ul>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col third">
+                        <h6>Menu</h6>
+                        <ul class="list-unstyled li-space-lg p-sm">
+                            <li><a href="/">Features</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/login/">Sign In</a></li>
+
+                        </ul>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col fourth">
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-youtube fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <p class="p-sm">We would love to hear from you <a href="mailto:rizza@gravvisoft.com"><strong>rizza@gravvisoft.com</strong></a></p>
+                    </div> <!-- end of footer-col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->
+
+
+
+    <!-- Scripts -->
+    <script src="{% static 'homebase/js/popper.min.js' %}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{% static 'homebase/js/jquery.min.js' %}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{% static 'homebase/js/bootstrap.min.js' %}"></script> <!-- Bootstrap framework -->
+    <script src="{% static 'homebase/js/jquery.easing.min.js' %}"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{% static 'homebase/js/swiper.min.js' %}"></script> <!-- Swiper for image and text sliders -->
+    <script src="{% static 'homebase/js/jquery.magnific-popup.js' %}"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="{% static 'homebase/js/validator.min.js' %}"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="{% static 'homebase/js/scripts.js' %}"></script> <!-- Custom scripts -->
+
+</body>
+</html>

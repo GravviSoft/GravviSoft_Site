@@ -1,0 +1,948 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lead Dashboard</title>
+
+
+
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+       <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.0.2/css/dataTables.dateTime.min.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.0/css/select.bootstrap4.min.css">
+    <link rel="stylesheet" href="{% static 'users/DataTables/Editor-2.0.2/css/editor.dataTables.min.css' %}">
+    <script src="{% static 'users/DataTables/Editor-2.0.2/css/editor.jqueryui.min.css' %}"></script>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/1.2.1/css/searchPanes.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<b></b>
+
+<table id="albums" class="display" style="width:100%">
+        <thead>
+            <tr>
+
+                    <th ></th>
+                <th data-data="id" ></th>
+                    <th width="1%"></th>
+
+					<th data-data="company">Company</th>
+					<th data-data="city">City</th>
+					<th data-data="industry">Industry</th>
+					<th data-data="phone">Phone</th>
+                    <th width="1%">DNC</th>
+
+                    <th data-data="rvm_drop" width=1%">VM Sent</th>
+
+
+					<th data-data="email">Email</th>
+                    <th width="1%">DNC</th>
+
+                    <th data-data="email_drop" width="1%">Email Sent</th>
+                    <th width="1%"></th>
+                    <th width="1%"></th>
+
+
+                    <th data-data="notes">Notes</th>
+
+
+            </tr>
+        </thead>
+
+    </table>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.0.2/js/dataTables.dateTime.min.js"></script>
+    <script src="https://cdn.datatables.net/searchpanes/1.2.1/js/dataTables.searchPanes.min.js"></script>
+
+
+    <script src="{% static 'users/DataTables/Editor-2.0.2/js/dataTables.editor.min.js' %}"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
+
+
+
+
+
+
+<!--<script>-->
+
+
+<!--    var editor;-->
+
+<!--// Display an Editor form that allows the user to pick the CSV data to apply to each column-->
+<!--function selectColumns ( editor, csv, header ) {-->
+<!--    var selectEditor = new $.fn.dataTable.Editor();-->
+<!--    var fields = editor.order();-->
+
+<!--    for ( var i=0 ; i<fields.length ; i++ ) {-->
+<!--        var field = editor.field( fields[i] );-->
+
+<!--        selectEditor.add( {-->
+<!--            label: field.label(),-->
+<!--            name: field.name(),-->
+<!--            type: 'select',-->
+<!--            options: header,-->
+<!--            def: header[i]-->
+<!--        } );-->
+<!--    }-->
+
+<!--    selectEditor.create({-->
+<!--        title: 'Map CSV fields',-->
+<!--        buttons: 'Import '+csv.length+' records',-->
+<!--        message: 'Select the CSV column you want to use the data from for each field.'-->
+<!--    });-->
+
+<!--    selectEditor.on('submitComplete', function (e, json, data, action) {-->
+<!--        // Use the host Editor instance to show a multi-row create form allowing the user to submit the data.-->
+<!--        editor.create( csv.length, {-->
+<!--            title: 'Confirm import',-->
+<!--            buttons: 'Submit',-->
+<!--            message: 'Click the <i>Submit</i> button to confirm the import of '+csv.length+' rows of data. Optionally, override the value for a field to set a common value by clicking on the field below.'-->
+<!--        } );-->
+
+<!--        for ( var i=0 ; i<fields.length ; i++ ) {-->
+<!--            var field = editor.field( fields[i] );-->
+<!--            var mapped = data[ field.name() ];-->
+
+<!--            for ( var j=0 ; j<csv.length ; j++ ) {-->
+<!--                field.multiSet( j, csv[j][mapped] );-->
+<!--            }-->
+<!--        }-->
+<!--    } );-->
+<!--}-->
+
+
+
+
+<!--        $(document).ready(function () {-->
+<!--            editor = new $.fn.dataTable.Editor({-->
+
+<!--                        ajax: {-->
+<!--            create: {-->
+<!--                type: 'POST',-->
+<!--                url: 'http://127.0.0.1:8000/api/lead/',-->
+<!--                headers: {'X-CSRFToken': '{{ csrf_token }}'},-->
+
+<!--            },-->
+<!--            "edit": {-->
+<!--                type: 'PUT',-->
+
+<!--                url: 'http://127.0.0.1:8000/api/lead/{id}/',-->
+
+<!--                headers: {'X-CSRFToken': '{{ csrf_token }}'},-->
+<!--                contentType: 'application/x-www-form-urlencoded;charset=utf-8',-->
+
+<!--                success : function(data)-->
+<!--                {-->
+<!--                $('#albums').DataTable().ajax.reload( function ( json ) {-->
+<!--                        $('#albums').val( json.lastInput );-->
+<!--                    } );-->
+
+<!--                },-->
+<!--                 },-->
+<!--            remove: {-->
+<!--                type: 'DELETE',-->
+<!--                url: "http://127.0.0.1:8000/api/lead/_id_/",-->
+<!--                headers: {'X-CSRFToken': '{{ csrf_token }}'},-->
+
+<!--            }-->
+<!--        },-->
+<!--                table: "#albums",-->
+<!--                fields: [-->
+
+<!--                {-->
+
+
+<!--                    label: "Company",-->
+<!--                    name: "company",-->
+
+<!--                },-->
+
+
+<!--                {-->
+<!--                    label: "City",-->
+<!--                    name: "city",-->
+<!--                }, {-->
+
+<!--                    label: "Industry",-->
+<!--                    name: "industry",-->
+<!--                },{-->
+<!--                    label: "Phone",-->
+<!--                    name: "phone",-->
+<!--                },  {-->
+<!--                    label: "Email",-->
+<!--                    name: "email",-->
+<!--                }, {-->
+
+
+<!--                    label: "Notes",-->
+<!--                    name: "notes",-->
+<!--                },-->
+<!--                {label: "Location",-->
+<!--     name: "LOC_NAME",-->
+<!--     type: "select",-->
+<!--     def: "",-->
+<!--     attr: {style:"width:75px; text-align:center"},-->
+<!--     ipOpts: [-->
+<!--          { label: "", value: "" },-->
+<!--          { label: "Chicago", value: "Chicago" },-->
+<!--          { label: "New York", value: "New York" },-->
+<!--          { label: "Los Angeles", value: "Los Angeles" },-->
+<!--          { label: "Miami", value: "4" },-->
+<!--          { label: "San Francisco", value: "5" },-->
+<!--          { label: "London", value: "6" }-->
+<!--     ]-->
+<!--},-->
+
+<!--                ]-->
+<!--            });-->
+
+<!--    $('#albums').on( 'click', 'tbody td.editable', function (e) {-->
+<!--        editor.bubble( this, {-->
+<!--            submit: 'allIfChanged',-->
+<!--        drawType: 'page',-->
+
+<!--        } );-->
+<!--    } );-->
+
+<!--    // Upload Editor - triggered from the import button. Used only for uploading a file to the browser-->
+<!--    var uploadEditor = new $.fn.dataTable.Editor( {-->
+<!--        fields: [ {-->
+<!--            label: 'CSV file:',-->
+<!--            name: 'csv',-->
+<!--            type: 'upload',-->
+<!--            ajax: function ( files, done ) {-->
+<!--                // Ajax override of the upload so we can handle the file locally. Here we use Papa-->
+<!--                // to parse the CSV.-->
+<!--                Papa.parse(files[0], {-->
+<!--                    header: true,-->
+<!--                    skipEmptyLines: true,-->
+<!--                    complete: function (results) {-->
+<!--                        if ( results.errors.length ) {-->
+<!--                            console.log( results );-->
+<!--                            uploadEditor.field('csv').error( 'CSV parsing error: '+ results.errors[0].message );-->
+<!--                        }-->
+<!--                        else {-->
+<!--                            uploadEditor.close();-->
+<!--                            selectColumns( editor, results.data, results.meta.fields );-->
+<!--                        }-->
+
+<!--                        // Tell Editor the upload is complete - the array is a list of file-->
+<!--                        // id's, which the value of doesn't matter in this case.-->
+<!--                        done([0]);-->
+<!--                    }-->
+<!--                });-->
+<!--            }-->
+<!--        } ]-->
+<!--    } );-->
+
+
+
+
+
+
+
+<!--var table2 = $('#albums').DataTable( {-->
+<!--    "processing": true,-->
+<!--    "serverSide": true,-->
+<!--    "saveState": true,-->
+<!--      "autoWidth": true,-->
+
+<!--    dom: 'lBfrtip',-->
+<!--      ajax: {-->
+<!--      url: "http://127.0.0.1:8000/api/lead/?format=datatables",-->
+
+<!--},-->
+<!--        columns:-->
+<!--        [-->
+
+<!--                   {-->
+<!--                        data: null,-->
+<!--                        defaultContent: '',-->
+<!--                        className: 'select-checkbox',-->
+<!--                        orderable: false-->
+<!--                    },-->
+<!--                    {"data": "id", orderable: true},-->
+
+<!--                    {"data": "company", className: 'editable'},-->
+<!--                    {"data":  "city", className: 'editable'},-->
+<!--                    {"data": "industry", className: 'editable'},-->
+<!--                    {"data": "phone", className: 'editable'},-->
+<!--                    {"data": "rvm_sent",-->
+<!--                    "render": function (data, type, row) {-->
+<!--                     if ( row.rvm_sent === true) {-->
+<!--                         return '<img src="{% static "homebase/images/voicemail-icon-png-22.jpg"%}" width="35" height="35">' }-->
+
+<!--                    else{-->
+<!--                        return ""-->
+<!--                    }-->
+<!--                                }-->
+<!--                 },-->
+<!--                    {"data": "email", className: 'editable'},-->
+
+
+<!--                 { "data": "email_drop",-->
+<!--                  "render": function (data, type, row) {-->
+
+<!--                  if ( row.email_drop) {-->
+
+<!--                         return '<img src="{% static "homebase/images/klenty_logo.png"%}" width="50" height="25">' }-->
+<!--                 else {-->
+
+
+<!--                        return "" }-->
+
+
+<!--                 }-->
+<!--                 },-->
+
+<!--                 { "data": "facebook",-->
+<!--                  "render": function (data, type, row) {-->
+
+<!--                  if ( row.facebook) {-->
+
+<!--                         return "<a target='_blank' href='"+data+"'>"+"<i class='fa fa-facebook-f'></i>"+"</a>" }-->
+<!--                 else {-->
+
+
+<!--                        return "" }-->
+
+
+<!--                 }-->
+<!--                 },-->
+<!--                  { "data": "url",-->
+<!--                  "render": function (data, type, row) {-->
+
+<!--                  if ( row.facebook) {-->
+
+<!--                         return "<a target='_blank' href='"+data+"'>"+"<i class='fa fa-link'></i>"+"</a>" }-->
+<!--                 else {-->
+
+
+<!--                        return "" }-->
+
+
+<!--                 }-->
+<!--                 },-->
+
+
+<!--                    {"data": "notes", className: 'editable'},-->
+
+
+
+<!--                ],-->
+
+<!--         columnDefs: [-->
+
+<!--{-->
+<!--                targets: [0,2,3,4,5,6,7,8,9,10],-->
+
+
+<!--                "visible": true,-->
+<!--            },-->
+
+<!--{-->
+<!--                targets: [ 1 ],-->
+
+
+<!--                "visible": false,-->
+<!--            },-->
+
+<!--          ],-->
+
+<!--        order: [ 1, "desc" ],-->
+
+<!--        select: true,-->
+
+<!--        buttons: [-->
+
+<!--            { extend: "create", editor: editor },-->
+<!--            { extend: "edit",   editor: editor },-->
+<!--            { extend: "remove", editor: editor },-->
+
+
+<!--            {-->
+<!--                extend: 'csv',-->
+<!--                text: 'Export CSV',-->
+<!--                className: 'btn-space',-->
+<!--                exportOptions: {-->
+<!--                    orthogonal: null-->
+<!--                }-->
+<!--            },-->
+
+
+
+
+<!--        ]-->
+<!--    } );-->
+<!--} );-->
+
+<!--</script>-->
+
+
+
+
+<script>
+
+
+    var editor;
+
+// Display an Editor form that allows the user to pick the CSV data to apply to each column
+function selectColumns ( editor, csv, header ) {
+    var selectEditor = new $.fn.dataTable.Editor();
+    var fields = editor.order();
+
+    for ( var i=0 ; i<fields.length ; i++ ) {
+        var field = editor.field( fields[i] );
+
+        selectEditor.add( {
+            label: field.label(),
+            name: field.name(),
+            type: 'select',
+            options: header,
+            def: header[i]
+        } );
+    }
+
+    selectEditor.create({
+        title: 'Map CSV fields',
+        buttons: 'Import '+csv.length+' records',
+        message: 'Select the CSV column you want to use the data from for each field.'
+    });
+
+    selectEditor.on('submitComplete', function (e, json, data, action) {
+        // Use the host Editor instance to show a multi-row create form allowing the user to submit the data.
+        editor.create( csv.length, {
+            title: 'Confirm import',
+            buttons: 'Submit',
+            message: 'Click the <i>Submit</i> button to confirm the import of '+csv.length+' rows of data. Optionally, override the value for a field to set a common value by clicking on the field below.'
+        } );
+
+        for ( var i=0 ; i<fields.length ; i++ ) {
+            var field = editor.field( fields[i] );
+            var mapped = data[ field.name() ];
+
+            for ( var j=0 ; j<csv.length ; j++ ) {
+                field.multiSet( j, csv[j][mapped] );
+            }
+        }
+    } );
+}
+
+
+
+
+        $(document).ready(function () {
+            editor = new $.fn.dataTable.Editor({
+
+                        ajax: {
+            create: {
+                type: 'POST',
+                url: 'http://127.0.0.1:8000/api/lead/',
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+
+            },
+            "edit": {
+                type: 'PUT',
+
+                url: 'http://127.0.0.1:8000/api/lead/{id}/',
+
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+
+                success : function(data)
+                {
+                $('#albums').DataTable().ajax.reload( function ( json ) {
+                        $('#albums').val( json.lastInput );
+                    } );
+
+                },
+                 },
+            remove: {
+                type: 'DELETE',
+                url: "http://127.0.0.1:8000/api/lead/_id_/",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+
+            }
+        },
+                table: "#albums",
+                fields: [
+                {
+
+
+                    name: "user_id",
+                    type: "hidden",
+
+
+                },
+                {
+
+
+                    label: "Company",
+                    name: "company",
+
+                },
+
+
+                {
+                    label: "City",
+                    name: "city",
+                }, {
+
+                    label: "Industry",
+                    name: "industry",
+                },{
+                    label: "Phone",
+                    name: "phone",
+                },
+
+                {
+                    label: "Email",
+                    name: "email",
+                }, {
+
+
+                    label: "Notes",
+                    name: "notes",
+
+                },
+                {label: "DNC Phone",
+                 name: "dnc_phone",
+                 type: "select",
+                 attr: {style:"width:75px; text-align:center"},
+                 def: "dnc_phone",
+                 ipOpts: [
+                      { label: "True", value: true },
+                      { label: "False", value: false },
+
+     ]
+},
+
+                {label: "DNC Email",
+                 name: "dnc_email",
+                 type: "select",
+                 attr: {style:"width:75px; text-align:center"},
+                 def: "dnc_email",
+                 ipOpts: [
+                      { label: "True", value: true  },
+                      { label: "False", value: false },
+
+     ]
+},
+
+                ]
+            });
+
+    $('#albums').on( 'click', 'tbody td.editable', function (e) {
+        editor.bubble( this, {
+            submit: 'allIfChanged',
+        drawType: 'page',
+
+        } );
+    } );
+
+    // Upload Editor - triggered from the import button. Used only for uploading a file to the browser
+    var uploadEditor = new $.fn.dataTable.Editor( {
+        fields: [ {
+            label: 'CSV file:',
+            name: 'csv',
+            type: 'upload',
+            ajax: function ( files, done ) {
+                // Ajax override of the upload so we can handle the file locally. Here we use Papa
+                // to parse the CSV.
+                Papa.parse(files[0], {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function (results) {
+                        if ( results.errors.length ) {
+                            console.log( results );
+                            uploadEditor.field('csv').error( 'CSV parsing error: '+ results.errors[0].message );
+                        }
+                        else {
+                            uploadEditor.close();
+                            selectColumns( editor, results.data, results.meta.fields );
+                        }
+
+                        // Tell Editor the upload is complete - the array is a list of file
+                        // id's, which the value of doesn't matter in this case.
+                        done([0]);
+                    }
+                });
+            }
+        } ]
+    } );
+
+
+
+
+
+
+
+var table2 = $('#albums').DataTable( {
+    "processing": true,
+    "serverSide": true,
+    "saveState": true,
+      "autoWidth": true,
+
+    dom: 'lBfrtip',
+      ajax: {
+      url: "http://127.0.0.1:8000/api/lead/user/{{request.user.id}}/?format=datatables",
+
+},
+        columns:
+        [
+
+                   {
+                        data: null,
+                        defaultContent: '',
+                        className: 'select-checkbox',
+                        orderable: false
+                    },
+                    {"data": "id", orderable: true},
+                    {"data": "user_id", className: 'editable'},
+
+                    {"data": "company", className: 'editable'},
+                    {"data":  "city", className: 'editable'},
+                    {"data": "industry", className: 'editable'},
+                    {"data": "phone", className: 'editable'},
+                    {"data": "dnc_phone", className: 'editable',
+                      "render": function (data, type, row) {
+
+                      if ( row.dnc_phone === true) {
+
+                         return '<img src="{% static "homebase/images/nophone.png"%}" width="30" height="30">' }
+                     else {
+
+
+                            return "" }
+
+
+                     }
+                     },
+                    {"data": "rvm_sent",
+                    "render": function (data, type, row) {
+                     if ( row.rvm_sent === true) {
+                         return '<img src="{% static "homebase/images/voicemail-icon-png-22.jpg"%}" width="35" height="35">' }
+
+                    else{
+                        return ""
+                    }
+                                }
+                 },
+                    {"data": "email", className: 'editable'},
+                    {"data": "dnc_email", className: 'editable',
+                      "render": function (data, type, row) {
+
+                      if ( row.dnc_email === true) {
+
+                         return '<img src="{% static "homebase/images/noemail.png"%}" width="40" height="40">' }
+                     else {
+
+
+                            return "" }
+
+
+                     }
+                     },
+
+                 { "data": "email_drop",
+                  "render": function (data, type, row) {
+
+                  if ( row.email_drop) {
+
+                         return '<img src="{% static "homebase/images/klenty_logo.png"%}" width="50" height="25">' }
+                 else {
+
+
+                        return "" }
+
+
+                 }
+                 },
+
+                 { "data": "facebook",
+                  "render": function (data, type, row) {
+
+                  if ( row.facebook) {
+
+                         return "<a target='_blank' href='"+data+"'>"+"<i class='fa fa-facebook-f'></i>"+"</a>" }
+                 else {
+
+
+                        return "" }
+
+
+                 }
+                 },
+                  { "data": "url",
+                  "render": function (data, type, row) {
+
+                  if ( row.facebook) {
+
+                         return "<a target='_blank' href='"+data+"'>"+"<i class='fa fa-link'></i>"+"</a>" }
+                 else {
+
+
+                        return "" }
+
+
+                 }
+                 },
+
+                    {"data": "notes", className: 'editable'},
+
+
+
+                ],
+
+
+
+
+
+
+        columns:
+        [
+
+                   {
+                        data: null,
+                        defaultContent: '',
+                        className: 'select-checkbox',
+                        orderable: false
+                    },
+                    {"data": "id", orderable: true},
+                    {"data": "user_id", className: 'editable'},
+                    {"data": "company", className: 'editable'},
+                    {"data":  "city", className: 'editable'},
+                    {"data": "industry", className: 'editable'},
+                    {"data": "phone", className: 'editable'},
+                    {"data": "dnc_phone", className: 'editable',
+                      "render": function (data, type, row) {
+
+                      if ( row.dnc_phone === true) {
+
+                         return '<img src="{% static "homebase/images/nophone.png"%}" width="30" height="30">' }
+                     else {
+
+
+                            return "" }
+
+
+                     }
+                     },
+                    {"data": "rvm_sent",
+                    "render": function (data, type, row) {
+                     if ( row.rvm_sent === true  ) {
+                         return '<img src="{% static "users/images/voicemail-icon-png-22.jpg"%}" width="35" height="35">' }
+
+                    else{
+                        return ""}
+                                }
+                 },
+                    {"data": "email", className: 'editable'},
+                    {"data": "dnc_email", className: 'editable',
+                      "render": function (data, type, row) {
+
+                      if ( row.dnc_email === true) {
+
+                         return '<img src="{% static "homebase/images/noemail.png"%}" width="40" height="40">' }
+                     else {
+
+
+                            return "" }
+
+
+                     }
+                     },
+
+                 { "data": "email_drop",
+                  "render": function (data, type, row) {
+
+                  if ( row.email_drop) {
+
+                         return '<img src="{% static "homebase/images/klenty_logo.png"%}" width="50" height="25">' }
+                 else {
+
+
+                        return "" }
+
+
+                 }
+                 },
+
+                 { "data": "facebook",
+                  "render": function (data, type, row) {
+
+                  if ( row.facebook) {
+
+                         return "<a target='_blank' href='"+data+"'>"+"<i class='fa fa-facebook-f'></i>"+"</a>" }
+                 else {
+
+
+                        return "" }
+
+
+                 }
+                 },
+                  { "data": "url",
+                  "render": function (data, type, row) {
+
+                  if ( row.url) {
+
+                         return "<a target='_blank' href='"+data+"'>"+"<i class='fa fa-link'></i>"+"</a>" }
+                 else {
+
+
+                        return "" }
+
+
+                 }
+                 },
+
+
+                    {"data": "notes", className: 'editable'},
+
+
+
+                ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         columnDefs: [
+
+{
+                targets: [0,7,8,10,11,12,13],
+
+
+                "visible": true,
+            },
+
+{
+                targets: [ 1,2 ],
+
+
+                "visible": false,
+            },
+
+            {
+                targets: [ 3 ],
+                "width": '15%',
+
+
+            },
+            {
+                targets: [ 4 ],
+                "width": '15%',
+
+
+            },
+            {
+                targets: [ 5 ],
+                "width": '15%',
+
+
+            },
+            {
+                targets: [ 6 ],
+                "width": '12%',
+
+
+            },
+            {
+                targets: [ 9 ],
+                "width": '17%',
+
+
+            },
+
+
+            {
+                targets: [ 14 ],
+                "width": '16%',
+
+
+            },
+
+
+
+
+
+          ],
+
+        order: [ 1, "desc" ],
+
+        select: true,
+
+        buttons: [
+
+            { extend: "create", editor: editor },
+            { extend: "edit",   editor: editor },
+            { extend: "remove", editor: editor },
+
+
+            {
+                extend: 'csv',
+                text: 'Export CSV',
+                className: 'btn-space',
+                exportOptions: {
+                    orthogonal: null
+                }
+            },
+
+
+
+
+        ]
+    } );
+} );
+
+</script>
+
+
+</body>
+</html>
+
