@@ -1,0 +1,48 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="7">
+            <item index="0" class="java.lang.String" itemvalue="celery" />
+            <item index="1" class="java.lang.String" itemvalue="djongo" />
+            <item index="2" class="java.lang.String" itemvalue="pymongo" />
+            <item index="3" class="java.lang.String" itemvalue="Django" />
+            <item index="4" class="java.lang.String" itemvalue="pypiwin32" />
+            <item index="5" class="java.lang.String" itemvalue="kombu" />
+            <item index="6" class="java.lang.String" itemvalue="billiard" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="str.items" />
+          <option value="dict.append" />
+          <option value="Exception.message" />
+          <option value="sendgrid.SendGridAPIClient" />
+          <option value="scrapy_mongodb.MONGODB_DATABASE" />
+          <option value="str.append" />
+          <option value="list.add" />
+          <option value="users.models.Lead.objects" />
+          <option value="bytes.encode" />
+          <option value="builtins.input.close" />
+          <option value="pkg_resources.iter_entry_points" />
+          <option value="environ.Env" />
+          <option value="requests.request.url" />
+          <option value="psyc" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
